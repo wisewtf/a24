@@ -39,11 +39,6 @@ for movie in movies:
         omdb_data = requests.get(API_URL)
         new_movie.append(omdb_data.text)
 
-with open(f'{DIR}/old_movies.json', 'w') as fp:
-    for title in movies:
-        fp.write("%s\n" % title)
-
-
 for film in new_movie:
     y = json.loads(film)
     response = y["Response"]
@@ -73,3 +68,7 @@ for film in new_movie:
         response = WEBHOOK.execute(remove_embeds=True)
     else:
         pass
+
+with open(f'{DIR}/old_movies.json', 'w') as fp:
+    for title in movies:
+        fp.write("%s\n" % title)

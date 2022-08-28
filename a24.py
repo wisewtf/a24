@@ -25,9 +25,6 @@ for item in found_items:
     stripped_movie = re.sub(R, '', str(item))
     movies.append(stripped_movie)
 
-with open(f'{DIR}/old_movies.json', 'w') as fp:
-    fp.write("")
-
 movie_list = []
 with open(f'{DIR}/old_movies.json', 'r') as fp:
     for line in fp:
@@ -41,6 +38,10 @@ for movie in movies:
         API_URL = f'http://www.omdbapi.com/?apikey={API}&t={title}&y={YEAR}'
         omdb_data = requests.get(API_URL)
         new_movie.append(omdb_data.text)
+
+with open(f'{DIR}/old_movies.json', 'w') as fp:
+    for title in movies:
+        fp.write("%s\n" % title)
 
 for film in new_movie:
     y = json.loads(film)
@@ -71,7 +72,3 @@ for film in new_movie:
         response = WEBHOOK.execute(remove_embeds=True)
     else:
         pass
-
-with open(f'{DIR}/old_movies.json', 'w') as fp:
-    for title in movies:
-        fp.write("%s\n" % title)

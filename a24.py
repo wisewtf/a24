@@ -25,6 +25,9 @@ for item in found_items:
     stripped_movie = re.sub(R, '', str(item))
     movies.append(stripped_movie)
 
+with open(f'{DIR}/old_movies.json', 'w') as fp:
+    fp.write("")
+
 movie_list = []
 with open(f'{DIR}/old_movies.json', 'r') as fp:
     for line in fp:

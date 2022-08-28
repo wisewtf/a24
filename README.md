@@ -2,7 +2,7 @@
 
 A simple Discord webhook bot that will warn when new A24 movies are added to their Upcoming Movies website page.
 
-All it does is scrape their [Films](https://a24films.com/films) page. Parse the `h3` HTML tag that contains movie titles and write them into a file in the `current working directory` of the script.
+All it does is scrape their [Films](https://a24films.com/films) page. Parse the `h3` HTML tag that contains movie titles and write them into a file in the `working directory` of your choosing.
 
 Then every time this runs it will parse the written file and find items that are not in it when A24 updates their website.
 

@@ -1,12 +1,11 @@
 import requests
 import re
-import os
 from bs4 import BeautifulSoup
 from discord_webhook import DiscordWebhook, DiscordEmbed
 from datetime import date
 import json
 
-DIR = os.getcwd()
+DIR = 'your_working_directory'
 R = re.compile(r'<[^>]+>') 
 URL = 'https://a24films.com/films/'
 HEADERS = {
